@@ -25,7 +25,7 @@ function Reveal({children, delay=0, className=""}) { return <div className={`rev
 function Arrow(){return <span className="arrow">↗</span>}
 
 export default function App(){
-  const [menu,setMenu]=useState(false); const [active,setActive]=useState("home"); const [theme,setTheme]=useState(()=>localStorage.getItem("dk-theme")||"dark"); const [open,setOpen]=useState(null); const [progress,setProgress]=useState(0);
+  const [menu,setMenu]=useState(false); const [active,setActive]=useState("home"); const [theme,setTheme]=useState(()=>localStorage.getItem("dk-theme")||"dark"); const [open,setOpen]=useState(null); const [progress,setProgress]=useState(0); const [heroShift,setHeroShift]=useState(0);
   useEffect(()=>{document.documentElement.dataset.theme=theme;localStorage.setItem("dk-theme",theme)},[theme]);
   useEffect(()=>{
     const els=[...document.querySelectorAll("section[id]")];
@@ -33,7 +33,7 @@ export default function App(){
     els.forEach(x=>obs.observe(x));
     const reveal=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");reveal.unobserve(e.target)}}),{threshold:.08});
     document.querySelectorAll(".reveal").forEach(x=>reveal.observe(x));
-    const scroll=()=>{const max=document.documentElement.scrollHeight-innerHeight;setProgress(max?scrollY/max:0)}; window.addEventListener("scroll",scroll,{passive:true});scroll();
+    const scroll=()=>{const max=document.documentElement.scrollHeight-innerHeight;setProgress(max?scrollY/max:0);setHeroShift(Math.min(scrollY/(innerHeight||1),1))}; window.addEventListener("scroll",scroll,{passive:true});scroll();
     return()=>{obs.disconnect();reveal.disconnect();window.removeEventListener("scroll",scroll)};
   },[]);
   const go=id=>{setMenu(false);document.getElementById(id)?.scrollIntoView({behavior:"smooth"})};
@@ -47,8 +47,8 @@ export default function App(){
 
     <main>
       <section id="home" className="hero"><div className="hero-grid">
-        <Reveal><div className="hero-copy"><p className="kicker"><i/> Kenya · IT · Software · Security</p><h1>I build <em>useful</em> digital products and understand the systems behind them.</h1><p className="lead">I'm David Korir — a Computer Security and Forensics graduate focused on software development, enterprise technology and practical cybersecurity.</p><div className="actions"><button className="primary" onClick={()=>go("work")}>View my work <Arrow/></button><a className="text-link" href={`mailto:${EMAIL}`}>Let's talk <Arrow/></a></div></div></Reveal>
-        <Reveal delay={140}><div className="hero-card"><div className="orbit one"/><div className="orbit two"/><div className="hero-initials">DK</div><div className="hero-card-bottom"><span>IT & SOFTWARE<br/>DEVELOPMENT</span><strong>01—06</strong></div></div></Reveal>
+        <Reveal><div className="hero-copy" style={{transform:`translate3d(0,${heroShift*-54}px,0)`,opacity:1-heroShift*.38}}><p className="kicker"><i/> Kenya · IT · Software · Security</p><h1>I build <em>useful</em> digital products and understand the systems behind them.</h1><p className="lead">I'm David Korir — a Computer Security and Forensics graduate focused on software development, enterprise technology and practical cybersecurity.</p><div className="actions"><button className="primary" onClick={()=>go("work")}>View my work <Arrow/></button><a className="text-link" href={`mailto:${EMAIL}`}>Let's talk <Arrow/></a></div></div></Reveal>
+        <Reveal delay={140}><div className="hero-card" style={{transform:`translate3d(0,${heroShift*38}px,0) rotate(${heroShift*1.5}deg)`}}><div className="orbit one"/><div className="orbit two"/><div className="hero-initials">DK</div><div className="hero-card-bottom"><span>IT & SOFTWARE<br/>DEVELOPMENT</span><strong>01—06</strong></div></div></Reveal>
       </div><div className="scroll-note"><span>Scroll</span><i/></div></section>
 
       <section id="about" className="section about"><div className="section-head"><Reveal><p className="kicker"><i/>01 · About</p><h2>Curious about how things work. Serious about making them work.</h2></Reveal><Reveal delay={100}><p className="section-intro">My background sits between technology and security. I enjoy taking a requirement, understanding the problem behind it, then building and testing a solution from the ground up.</p></Reveal></div><Reveal delay={160}><div className="about-strip"><span>SECURITY</span><b>×</b><span>SOFTWARE</span><b>×</b><span>ENTERPRISE TECH</span><b>×</b><span>AI-ASSISTED WORKFLOWS</span></div></Reveal></section>
