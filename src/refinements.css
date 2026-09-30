@@ -26,6 +26,7 @@
 }
 .logo span { background: linear-gradient(135deg, var(--red), var(--gold)); border-radius: 12px; color: #111; }
 .progress span { transform: scaleX(0); }
+.form-status:empty { display: block; height: 0; }
 .hero { background: radial-gradient(ellipse at 85% 30%, #ff63590a, transparent 50%); }
 .hero-card { border-radius: 28px; background: radial-gradient(circle at 50% 45%, #ff63590c, transparent 60%), var(--surface); }
 .hero-card:before { inset: 12%; border-radius: 50%; }

@@ -17,7 +17,7 @@ function observeErrors(page) {
 async function navigate(page, id, width) {
   if (width <= menuAt) await page.getByRole('button', { name: 'Open navigation' }).click();
   await page.getByRole('button', { name: id, exact: true }).click();
-  await expect(page.getByRole('button', { name: id, exact: true })).toHaveAttribute('aria-current', 'location');
+  await expect(page.locator('#site-navigation button').filter({ hasText: new RegExp(`^${id}$`) })).toHaveAttribute('aria-current', 'location');
   await expect(page).toHaveURL(new RegExp(`#${id}$`));
 }
 

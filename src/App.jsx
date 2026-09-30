@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePortfolioMotion } from "./usePortfolioMotion";
+import { useSectionLinks } from "./useSectionLinks";
 import ContactForm from "./ContactForm";
 import ProjectCard from "./components/ProjectCard";
 import ProjectDetails from "./components/ProjectDetails";
@@ -24,6 +25,7 @@ export default function App(){
   const closeProject = useCallback(() => setOpen(null), []);
   useEffect(()=>{document.documentElement.dataset.theme=theme;try{localStorage.setItem("dk-theme",theme)}catch{/* Storage may be disabled. */}},[theme]);
   usePortfolioMotion(setActive);
+  useSectionLinks();
   useEffect(() => {
     if (menu) document.querySelector('#site-navigation button')?.focus();
     const escape = event => {
