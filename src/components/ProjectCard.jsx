@@ -20,7 +20,7 @@ export function ProjectImage({ project }) {
 }
 
 export default function ProjectCard({ project, onExplore, email }) {
-  return <article className={`project ${project.tone}`} aria-labelledby={`project-${project.id}`}>
+  return <article className={`project ${project.tone} ${project.id === 'enterprise' ? 'enterprise-project' : ''}`} aria-labelledby={`project-${project.id}`}>
     <div className="project-visual">
       <span>{project.n} / SELECTED PROJECT</span>
       <ProjectImage project={project}/>
