@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1008 690" fill="none">
+  <defs>
+    <linearGradient id="bg" x2="1008" y2="690" gradientUnits="userSpaceOnUse"><stop stop-color="#0e1724"/><stop offset="1" stop-color="#182d43"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#f78255" stop-opacity=".16"/><stop offset="1" stop-color="#f78255" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#cbd6e5" stroke-opacity=".045"/></pattern>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1008v690H0z"/><path fill="url(#grid)" d="M0 0h1008v690H0z"/><ellipse cx="685" cy="270" rx="430" ry="380" fill="url(#light)"/>
+  <g font-family="Arial,sans-serif">
+    <rect x="52" y="47" width="43" height="43" rx="10" fill="#f78255"/>
+    <path d="M65 60h16v16H65zM73 76v8M65 84h16" stroke="#17222f" stroke-width="2"/>
+    <text x="110" y="66" fill="#f6f8fc" font-size="22" font-weight="700">DAVAI</text><text x="110" y="87" fill="#adbccd" font-size="11" letter-spacing="3">AUTOMATION</text>
+    <text x="58" y="173" fill="#adbccd" font-size="13" letter-spacing="3">LESS REPETITIVE WORK.</text>
+    <text x="56" y="233" fill="#f6f8fc" font-size="48" font-weight="700">More room for what’s next.</text>
+    <text x="58" y="275" fill="#adbccd" font-size="18">A clearer path from an inquiry to its next step.</text>
+    <path d="M226 390H304M478 390H556M730 390H808" stroke="#de926d" stroke-width="2" stroke-dasharray="6 6"/>
+    <g fill="#203348" stroke="#52637c"><rect x="58" y="330" width="178" height="124" rx="14"/><rect x="294" y="330" width="178" height="124" rx="14"/><rect x="530" y="330" width="178" height="124" rx="14"/><rect x="766" y="330" width="178" height="124" rx="14"/></g>
+    <g fill="#f78255" font-size="12" letter-spacing="2"><text x="81" y="360">01 / RECEIVE</text><text x="317" y="360">02 / UNDERSTAND</text><text x="553" y="360">03 / FOLLOW UP</text><text x="789" y="360">04 / RECORD</text></g>
+    <g fill="#f6f8fc" font-size="21" font-weight="600"><text x="81" y="398">New inquiry</text><text x="317" y="398">Keep context</text><text x="553" y="398">Next action</text><text x="789" y="398">Save details</text></g>
+    <g fill="#adbccd" font-size="13"><text x="81" y="428">Customer / lead</text><text x="317" y="428">AI / CRM example</text><text x="553" y="428">Team / messaging</text><text x="789" y="428">Database</text></g>
+    <rect x="58" y="503" width="233" height="43" rx="22" fill="#f78255"/><text x="82" y="530" fill="#17222f" font-size="14" font-weight="700">Automation audit request ↗</text>
+    <text x="58" y="625" fill="#adbccd" font-size="12" letter-spacing="2">PROJECT WORKFLOW ILLUSTRATION · NOT A CONNECTED INTEGRATION</text>
+  </g>
+</svg>
